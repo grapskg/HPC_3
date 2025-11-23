@@ -206,7 +206,7 @@ int main(int argc, char **argv) {
     printf("CPU execution time: %lf ms\n", cpu_time * 1000.0);
     printf("GPU computation...\n");
     dim3 blockDim(32, 32);
-    dim3 gridDim(1,1);
+    dim3 gridDim((imageW + blockDim.x - 1) / blockDim.x,(imageH + blockDim.y - 1) / blockDim.y);
 
     //Start GPU timer
     timer.Start();
